@@ -68,5 +68,6 @@
 # ЗАДАНИЕ 6
 ch1 = int(input('Введи число повторений: '))
 sym = input('Введи, что будем повторять: ')
-print(f'{sym*ch1}')
-
+# print(f'{sym*ch1}')
+for i in range(ch1):
+    print(sym, end='')

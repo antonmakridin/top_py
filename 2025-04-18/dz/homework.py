@@ -38,7 +38,7 @@
 
 # Задание 5 ----------------------------------------------
 # text = 'караван'
-# #print(text.count('а'))
+# # print(text.count('а'))
 # len = len(text)
 # p = 0
 # for i in range(len):
@@ -47,14 +47,14 @@
 # print(p)
 
 # Задание 6 ----------------------------------------------
-num1 = int(input('Введи начало диапазона: '))
-num2 = int(input('Введи конец диапазона: '))
-for i in range(num1,num2):
-    if (i % 3 == 0) and (i % 5 == 0):
-        print('Fizz Buzz')
-    elif i % 3 == 0: 
-        print('Fizz')
-    elif i % 5 == 0: 
-        print('Buzz')
-    else:
-        print(i)
+# num1 = int(input('Введи начало диапазона: '))
+# num2 = int(input('Введи конец диапазона: '))
+# for i in range(num1,num2):
+#     if (i % 3 == 0) and (i % 5 == 0):
+#         print('Fizz Buzz')
+#     elif i % 3 == 0: 
+#         print('Fizz')
+#     elif i % 5 == 0: 
+#         print('Buzz')
+#     else:
+#         print(i)

@@ -332,8 +332,49 @@
 # for i in range(s, 0, -1):
 #     print('*' * i)
 
-m, p, n = int(input()), int(input()), int(input())
-print('1', float(m))
-for i in range(n-1):
-    m = m + m * p / 100
-    print(i + 2, m)
+# m, p, n = int(input()), int(input()), int(input())
+# print('1', float(m))
+# for i in range(n-1):
+#     m = m + m * p / 100
+#     print(i + 2, m)
+
+# count = 0
+# while count < 5:
+#     print("Счетчик:", count)
+#     count += 1
+
+
+# m, n = int(input()), int(input())
+# for i in range(m, n + 1):
+#     if i % 17 == 0:
+#         print(i)
+#     elif i % 10 == 9:
+#         print(i)
+#     elif (i % 3 == 0) and (i % 5 == 0):
+#         print (i)
+
+# x = int(input())
+# for i in range(10):
+#     print(x, 'x', i + 1, '=', x * (i + 1))
+
+# counter1 = 0
+# counter2 = 0
+# for _ in range(10):
+#     num = int(input())
+#     if num > 10:
+#         counter1 = counter1 + 1
+#     if num == 0:
+#         counter2 = counter2 + 1
+# print('Было введено', counter1, 'чисел, больших 10.')
+# print('Было введено', counter2, 'нулей.' )
+
+
+
+# counter = 0
+# for i in range(1, 101):
+#     if i**2 % 10 == 4:
+#         counter = counter + 1
+
+# print(counter)
+
+

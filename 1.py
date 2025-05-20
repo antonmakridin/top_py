@@ -378,3 +378,14 @@
 # print(counter)
 
 
+# total = 0
+# for i in range(1, 6):
+#     total += i
+#     print(total, end='')
+
+n = int(input())
+ch = 0
+for i in range(n):
+    v = int(input())
+    ch += v
+print(ch)

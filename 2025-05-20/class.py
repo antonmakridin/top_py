@@ -19,24 +19,21 @@
 # print(min)
 
 ##3
-otr = 0
-ch = 0
-nech = 0
-krat = 0
-numbers = [12, 4, 5, -3, 12, -6, 1, 7, 2]
-for i in range(len(numbers)):
-    if numbers[i] < 0:
-        otr += numbers[i]
-for i in range(len(numbers)):
-    if numbers[i] % 2 == 0:
-        ch += numbers[i]
-for i in range(len(numbers)):
-    if numbers[i] % 2 != 0:
-        nech += numbers[i]
-for i in range(len(numbers)):
-    if i % 3 == 0:
-        krat *= numbers[i]
-print(otr,ch,nech,krat,sep='\n')
+# otr = 0
+# ch = 0
+# nech = 0
+# krat = 1
+# numbers = [12, 4, 5, -3, 12, -6, 1, 7, 2]
+# for i in range(len(numbers)):
+#     if numbers[i] < 0:
+#         otr += numbers[i]
+#     if numbers[i] % 2 == 0:
+#         ch += numbers[i]
+#     if numbers[i] % 2 != 0:
+#         nech += numbers[i]
+#     if i % 3 == 0:
+#         krat *= numbers[i]
+# print(otr,ch,nech,krat,sep='\n')
 
 # from random import randint
 # numbers = []

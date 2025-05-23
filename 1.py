@@ -383,9 +383,365 @@
 #     total += i
 #     print(total, end='')
 
+# n = int(input())
+# ch = 0
+# for i in range(n):
+#     v = int(input())
+#     ch += v
+# print(ch)
+
+# from math import log
+# m = 0
+# n = int(input())
+# for i in range(n):
+#     m += (1 / (i + 1))
+# print(m - log(n))
+
+
+# n = int(input())
+# sum = 0
+# for i in range(1, n+1):
+#     if i**2 % 10 == 2 or i**2 % 10 == 5 or i**2 % 10 == 8:
+#         sum += i
+# print(sum)
+
+# from math import factorial
+# n = int(input())
+# print(factorial(n))
+
+# sum = 1
+# for i in range(10):
+#     n = int(input())
+#     if n != 0:
+#         sum *= n
+# print(sum)
+
+# sum = 0
+# n = int(input())
+# for i in range(1, n + 1):
+#     if n % i == 0:
+#         sum += i
+# print(sum)
+
+# from math import pow
+# sum = 0
+# n = int(input())
+# for i in range(1, n + 1):
+#     sum += pow((-1), i + 1) * i
+# print(int(sum))
+
+# n = int(input())
+# numbers = [int(input()) for _ in range(n)]
+# max1 = max(numbers)
+# numbers.remove(max1)
+# max2 = max(numbers)
+# print(max1)
+# print(max2)
+
+# ch = 0
+# for i in range(10):
+#     num = int(input())
+#     if num % 2 != 0:
+#         ch += 1
+# if ch > 0:
+#     print('NO') 
+# else:
+#     print('YES')
+
+
+# fib = [1, 1, 3, 4]
+# e = []
+# for i in range(n):
+#     fib.append[n]
+# print(fib)
+
+# n = int(input())
+# if n == 0:
+#     print('')
+# elif n == 1:
+#     print('1')
+# else:
+#     fib = [1,1]
+#     for i in range(2, n):
+#         fib.append(fib[i-1]+ fib[i-2])
+#     print(' '.join(map(str, fib)))
+
+# numbers = [12, 4, 5, -3, 12, -6, 1, 7, 2]
+# for i in range(len(numbers)):
+#     if numbers[i] < 0:
+#         otr += numbers[i]
+
+
+# i = 5
+# while i <= 12:
+#     print('Python awesome!')
+#     i += 1
+
+# i = 7
+# a = 5
+# while i < 11:
+#     a += i
+#     i += 2
+# print(a)
+
+# i = input()
+# total = ""
+# flag = True
+# while flag == True:
+#     total += i+"\n"
+#     i = input()
+#     if i == "КОНЕЦ" or i == "конец":
+#         flag = False
+# print(total)
+
+
+# total = 0
+# flag = True
+# while flag == True:
+#     i = input()
+#     if i == "стоп" or i == "хватит" or i == "достаточно":
+#         flag = False
+#     else:
+#         total += 1
+# print(total)
+
+# i = int(input())
+# total = 0
+# while i >= 0:
+#     total += i
+#     i = int(input())
+# print(total)
+
+# total = 0
+# flag = True
+# while flag == True:
+#     i = int(input())
+#     if i <= 0 or i > 5:
+#         flag = False
+#     else:
+#         if i == 5:
+#             total += 1
+# print(total)
+
+# total1 = 0
+# total2 = 0
+# total3 = 0
+# total4 = 0
+# ost25 = 0
+# flag = True
+# s = int(input())
+# y = s
+# m = [25, 10, 5, 1]
+# while flag == True:
+#     s -= m[0]
+#     if s >= 0:
+#         total1 += 1
+#     else:
+#         ost25 = y - total1 * m[0]
+#         flag = False
+# if ost25 == 0:
+#     print(total1)
+# else:
+#     flag = True
+#     ost10 = 0
+#     y = ost25
+#     while flag == True:
+#         ost25 -= m[1]
+#         if ost25 >= 0:
+#             total2 += 1
+#         else:
+#             ost10 = y - total2 * m[1]
+#             flag = False
+#     if ost10 == 0:
+#         print(total1 + total2)
+#     else:
+#         flag = True
+#         ost5 = 0
+#         y = ost10
+#         while flag == True:
+#             ost10 -= m[2]
+#             if ost10 >= 0:
+#                 total3 += 1
+#             else:
+#                 ost5 = y - total3 * m[2]
+#                 flag = False
+#         if ost5 == 0:
+#             print(total1 + total2 + total3)
+#         else:
+#             flag = True
+#             ost1 = 0
+#             y = ost5
+#             while flag == True:
+#                 ost5 -= m[3]
+#                 if ost5 >= 0:
+#                     total4 += 1
+#                 else:
+#                     flag = False
+#             if ost1 == 0:
+#                 print(total1 + total2 + total3 + total4)
+
+# n = int(input())
+# coins = [25, 10, 5, 1]
+# count = 0
+# for coin in coins:
+#     if n >= coin:
+#         num = n // coin
+#         count += num
+#         n -= num * coin
+#     if n == 0:
+#         break
+# print(count)
+
+# #Напишем программу, которая считывает натуральное число (целое положительное) и обрабатывает его цифры.
+# n = int(input())
+# while n != 0:  # пока в числе есть цифры
+#     last_digit = n % 10  # получить последнюю цифру
+#     # код обработки последней цифры
+#     n = n // 10  # удалить последнюю цифру из числа
+
+
+# #Напишем программу, которая определяет, есть ли в числе цифра 7.
+# num = int(input())
+# has_seven = False  # сигнальная метка
+# while num != 0:
+#     last_digit = num % 10
+#     if last_digit == 7:
+#         has_seven = True
+#     num = num // 10
+# if has_seven == True:
+#     print('YES')
+# else:
+#     print('NO')
+
+# num = 12345
+# product = 1
+# while num != 0:
+#     last_digit = num % 10
+#     product = product * last_digit
+#     num = num // 10
+# print(product)
+
+# n = int(input())
+# x = []
+# while n != 0:
+#     last = n % 10
+#     x.append(last)
+#     n = n // 10
+# print(''.join(map(str, x)))
+
+# n = int(input())
+# while n != 0:
+#     last = n % 10
+#     print(last, end='')
+#     n = n // 10
+
+
+# n = int(input())
+# m = n
+# min = n % 10
+# max = n % 10
+# while n != 0:
+#     last = n % 10
+#     n = n // 10
+#     if last < min:
+#         min = last
+#     if last > max:
+#         max = last
+# print('Максимальная цифра равна', max)
+# print('Минимальная цифра равна', min)
+
+
+
+# n = int(input())
+# sc = 0
+# col = 0
+# pr = 1
+# first = n
+# posl = n % 10
+# srar = 0
+# sumpp = 0
+# while n != 0:
+#     last = n % 10
+#     sc += last
+#     col += 1
+#     pr *= last
+#     n = n // 10
+# first = first // (10**(col-1))
+# print(sc)
+# print(col)
+# print(pr)
+# print(sc / col)
+# print(first)
+# print(first + posl)
+
+# n = int(input())
+# col = 0
+# first = n
+# while n != 0:
+#     last = n % 10
+#     col += 1
+#     n = n // 10
+# first = first // (10**(col-2))
+# second = first % 10
+# print(second)
+
+
+# n = int(input())
+# l = n % 10
+# da = 0
+# while n != 0:
+#     last = n % 10
+#     if last != m:
+#         da += 1
+#     n = n // 10
+# if da == 0:
+#     print('YES')
+# else:
+#     print('NO')
+
+
+# n = int(input())
+# l = n % 10
+# pl = (n // 10) % 10
+# razn = l - pl
+# da = 0
+# while n != 0:
+#     last = n % 10
+#     n = n // 10
+#     pr = n % 10
+#     if last - pr != razn:
+#         da += 1
+# if da == 0:
+#     print('YES')
+# else:
+#     print('NO')
+
+
+# n = int(input())
+# l = n % 10
+# da = 0
+# while n != 0:
+#     last = n % 10
+#     n = n // 10
+#     pr = n % 10
+#     if last > pr and pr != 0:
+#         da += 1
+# if da == 0:
+#     print('YES')
+# else:
+#     print('NO')
+
+
+# n = int(input())
+# for i in range(2, n+1):
+#     if n % i == 0:
+#         break
+# print(i)
+
+
 n = int(input())
-ch = 0
-for i in range(n):
-    v = int(input())
-    ch += v
-print(ch)
+for i in range(1, n+1):
+    if 5 <= i <= 9 or 17 <= i <= 37 or 78 <= i <= 87:
+        continue
+    print(i)
+    57.255822, 65.301458

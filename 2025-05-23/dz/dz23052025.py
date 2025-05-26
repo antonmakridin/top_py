@@ -24,6 +24,7 @@
 words = ['apple', 'banana', 'cherry', 'cherry', 'lemon', 'apple']
 unique_words = []
 for w in words:
-    unique_words.append(w)
-    print(w, '-', words.count(w))
-    words.remove(w)
+    if w not in unique_words:
+        unique_words.append(w)
+        print(w, '-', words.count(w))
+print(unique_words)

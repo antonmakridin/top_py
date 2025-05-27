@@ -739,9 +739,24 @@
 # print(i)
 
 
-n = int(input())
-for i in range(1, n+1):
-    if 5 <= i <= 9 or 17 <= i <= 37 or 78 <= i <= 87:
-        continue
-    print(i)
-    57.255822, 65.301458
+# n = int(input())
+# for i in range(1, n+1):
+#     if 5 <= i <= 9 or 17 <= i <= 37 or 78 <= i <= 87:
+#         continue
+#     print(i)
+#     57.255822, 65.301458
+
+
+s = 0
+mx = - 10 ** 6
+for i in range(10):
+    x = int(input())
+    if x < 0:
+        s += x
+    if mx < x < 0:
+        mx = x
+if s != 0:
+    print(s)
+    print(mx)
+else:
+    print('NO')

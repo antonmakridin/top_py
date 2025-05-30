@@ -862,13 +862,23 @@
 
 
 
-b = int(input())
-for num in range(1, b + 1):
-    col = 0
-    for i in range(1, num + 1):
-        if num % i == 0:
-            col += 1
-    print(num, end='')
-    for c in range(col):
-        print('+', end='')
-    print()
+# b = int(input())
+# for num in range(1, b + 1):
+#     col = 0
+#     for i in range(1, num + 1):
+#         if num % i == 0:
+#             col += 1
+#     print(num, end='')
+#     for c in range(col):
+#         print('+', end='')
+#     print()
+
+
+# n = int(input())
+# t = 0
+# s = 0
+# while n > 0:
+#     t = n % 10
+#     n //= 10
+#     s += t
+# while s > 0:

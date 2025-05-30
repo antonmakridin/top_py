@@ -747,16 +747,128 @@
 #     57.255822, 65.301458
 
 
-s = 0
-mx = - 10 ** 6
-for i in range(10):
-    x = int(input())
-    if x < 0:
-        s += x
-    if mx < x < 0:
-        mx = x
-if s != 0:
-    print(s)
-    print(mx)
-else:
-    print('NO')
+# s = 0
+# mx = - 10 ** 6
+# for i in range(10):
+#     x = int(input())
+#     if x < 0:
+#         s += x
+#     if mx < x < 0:
+#         mx = x
+# if s != 0:
+#     print(s)
+#     print(mx)
+# else:
+#     print('NO')
+
+
+
+# n = int(input())
+# max_digit = -1
+# while n > 0:
+#     digit = n % 10
+#     if digit % 3 == 0:
+#         if digit > max_digit:
+#             max_digit = digit
+#     n = n // 10
+# if max_digit == -1:
+#     print('NO')
+# else:
+#     print(max_digit)
+
+
+
+# n = int(input())
+# while n >= 10:
+#     n //= 10
+# print(n)
+
+# n = int(input())
+# product = 1
+# while n > 1:
+#     digit = n % 10
+#     product *= digit
+#     n //= 10
+#     print(digit, product, n)
+# print(product)
+
+
+# counter = 0
+# for i in range(99, 102):
+#     temp = i
+#     while temp > 0:
+#         counter += 1
+#         temp //= 10
+
+# print(counter)
+
+# n = int(input())
+# for i in range(n):
+#     for j in range(5):
+#         print(i + 1, end=' ')
+#     print()
+
+
+# n = int(input())
+# for i in range(1, n + 1):
+#     for j in range(i):
+#         print(i, end='')
+#     print()
+
+# import time
+# def find_solution(max_limit):
+#     # Создаем словарь для хранения пятых степеней чисел
+#     fifth_powers = {x: x**5 for x in range(1, max_limit + 1)}
+#         # Проходим все возможные комбинации a, b, c, d (a <= b <= c <= d)
+#     for a in range(1, max_limit + 1):
+#         for b in range(a, max_limit + 1):
+#             for c in range(b, max_limit + 1):
+#                 for d in range(c, max_limit + 1):
+#                     sum_fifth = fifth_powers[a] + fifth_powers[b] + fifth_powers[c] + fifth_powers[d]
+#                     # Проверяем, является ли сумма пятых степеней пятой степенью какого-либо числа
+#                     e = round(sum_fifth ** (1/5))
+#                     # Учитываем погрешность округления
+#                     if e**5 == sum_fifth and e <= max_limit:
+#                         print(f"Найдено решение: {a}⁵ + {b}⁵ + {c}⁵ + {d}⁵ = {e}⁵")
+#                         print(f"Проверка: {a**5} + {b**5} + {c**5} + {d**5} = {e**5}")
+#                         print(f"Проверка2: {a + b + c + d + e}")
+#                         return (a, b, c, d, e)
+#     print("Решение не найдено в заданном диапазоне.")
+#     return None
+# # Задаем максимальное значение для перебора (можно увеличить для поиска большего количества решений)
+# max_limit = 150
+# start_time = time.time()
+# solution = find_solution(max_limit)
+# end_time = time.time()
+# print(f"Время выполнения: {end_time - start_time:.2f} секунд")
+
+
+# n = int(input())
+# c = 1
+# for i in range(1, n + 1):
+#     for j in range(i):
+#         print(c, end=' ')
+#         c += 1
+#     print()
+
+
+# n = int(input())
+# for i in range(1, n + 1):
+#     for j in range(1, i + 1):
+#         print(j, end='')
+#     for j in range(i - 1, 0, -1):
+#         print(j, end='')
+#     print()
+
+
+
+b = int(input())
+for num in range(1, b + 1):
+    col = 0
+    for i in range(1, num + 1):
+        if num % i == 0:
+            col += 1
+    print(num, end='')
+    for c in range(col):
+        print('+', end='')
+    print()

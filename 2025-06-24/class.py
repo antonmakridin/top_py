@@ -77,4 +77,44 @@
 #         print('Товар добавлен')
 # print('Молодец, добавил 5 товаров')
 
-#4
+# #4
+# with open('2025-06-24\\4.txt', 'r', encoding='utf-8') as file:
+#     l = input('Введи логин: ')
+#     p = input('Введи пароль: ')
+#     data = file.readlines()
+#     for i in range(len(data)):
+#         dat = data[i].strip('\n')
+#         dat = dat.split('-')
+#         if dat[0] == l and dat[1] == p:
+#             print('Доступ разрешен')
+#             break
+#     else:
+#         print('Доступ запрещен')
+
+#5
+do = int(input('Выберите действие: \nАвторизация - 1\nРегистрация - 2\nВыход - 3\n'))
+if do == 1:
+    with open('2025-06-24\\5.txt', 'r', encoding='utf-8') as file:
+        l = input('Введи логин: ')
+        p = input('Введи пароль: ')
+        data = file.readlines()
+        for i in range(len(data)):
+            dat = data[i].strip('\n')
+            dat = dat.split('-')
+            if dat[0] == l and dat[1] == p:
+                print('Доступ разрешен')
+                break
+        else:
+            print('Доступ запрещен')
+elif do == 2:
+    with open('2025-06-24\\5.txt', 'a', encoding='utf-8') as file:
+        l = input('Введи логин: ')
+        p = input('Введи пароль: ')
+        p2 = input('Введи пароль еще раз: ')
+        if p == p2:
+            data = file.write('\n' + l + '-' + p)
+            print('Успешная регистрация')
+        else:
+            print('Пароли не совпадают. Регистрация не пройдена')
+elif do == 3:
+    exit

@@ -41,30 +41,33 @@
 
 
 # #6
-# def summa(a, b):
-#     print(a + b)
-# def raznost(a, b):
-#     print(a - b)
-# def square(a, b):
-#     print(a * b)
-# def division(a, b):
-#     if b != 0:
-#         print(a / b)
-#     else:
-#         print('На ноль делить нельзя!')
-# a = int(input('Введите первое число: '))
-# b = int(input('Введите второе число: '))
-# do = input('Что сделать надо? +, -, *, / ')
-# if do == "+":
-#     summa(a, b)
-# elif do == "-":
-#     raznost(a, b)
-# elif do == "*":
-#     square(a, b)
-# elif do == "/":
-#     division(a, b)
-# else:
-#     print('Ошибка')
+def summa(a, b):
+    print(a + b)
+def raznost(a, b):
+    print(a - b)
+def square(a, b):
+    print(a * b)
+def division(a, b):
+    if b != 0:
+        print(a / b)
+    else:
+        print('На ноль делить нельзя!')
+while True:
+    do = input('Что сделать надо? 1 - сложить, 2 - вычесть, 3 - перемножить, 4 - разделить, 0 - Выход: ')
+    if do == "0":
+        break
+    a = int(input('Введите первое число: '))
+    b = int(input('Введите второе число: '))
+    if do == "1":
+        summa(a, b)
+    elif do == "2":
+        raznost(a, b)
+    elif do == "3":
+        square(a, b)
+    elif do == "4":
+        division(a, b)
+    else:
+        print('Ошибка')
 
 # #7
 # def clear(s):
@@ -77,19 +80,19 @@
 # print(clear(s))
 
 
-#8
-def fib(n):
-    fi = [0, 1]
-    for _ in range(2, n):
-        fi.append(fi[-2] + fi[-1])
-    print(fi)
-n = int(input('Укажите количество чисел ряда Фибоначчи: '))
-if n == 0:
-    print('Такого числа нет')
-elif n == 1:
-    print('[0]')
-else:
-    fib(n)
+# #8
+# def fib(n):
+#     fi = [0, 1]
+#     for _ in range(2, n):
+#         fi.append(fi[-2] + fi[-1])
+#     print(fi)
+# n = int(input('Укажите количество чисел ряда Фибоначчи: '))
+# if n == 0:
+#     print('Такого числа нет')
+# elif n == 1:
+#     print('[0]')
+# else:
+#     fib(n)
 
 
     

@@ -779,9 +779,15 @@
 
 
 # n = int(input())
+# z = n
+# t = 1
 # while n >= 10:
 #     n //= 10
-# print(n)
+#     t += 1
+# for i in range(t - 3):
+#     z //= 10
+# z = z % 10
+# print(z)
 
 # n = int(input())
 # product = 1
@@ -884,8 +890,69 @@
 # while s > 0:
 
 
-n = int(input())
-i = 2
-while n % i != 0:
-    i += 1
-print(i)
+# n = int(input())
+# i = 2
+# while n % i != 0:
+#     i += 1
+# print(i)
+
+
+
+# n = int(input())
+# digits = [int(d) for d in str(n)]  # Преобразуем число в список цифр
+
+# # 1. Количество цифр 3
+# count_3 = digits.count(3)
+
+# # 2. Сколько раз встречается последняя цифра
+# last_digit = digits[-1]
+# count_last = digits.count(last_digit)
+
+# # 3. Количество чётных цифр
+# count_even = sum(1 for d in digits if d % 2 == 0)
+
+# # 4. Сумма цифр, больших пяти
+# sum_gt5 = sum(d for d in digits if d > 5)
+
+# # 5. Произведение цифр, больших семи
+# product_gt7 = 1
+# for d in digits:
+#     if d > 7:
+#         product_gt7 *= d
+
+# # 6. Сколько раз встречаются цифры 0 и 5 (суммарно)
+# count_0_5 = digits.count(0) + digits.count(5)
+
+# # Выводим результаты
+# print(count_3)
+# print(count_last)
+# print(count_even)
+# print(sum_gt5)
+# print(product_gt7)
+# print(count_0_5)
+
+
+# Словарь для хранения чисел и их представлений в виде суммы кубов
+from collections import defaultdict
+
+sums = defaultdict(list)
+max_num = 25000  # Достаточно большое число, чтобы найти первые 5 чисел
+
+# Перебираем все возможные пары (a, b), где a <= b, чтобы избежать повторов
+for a in range(1, int(max_num ** (1/3)) + 2):
+    for b in range(a, int(max_num ** (1/3)) + 2):
+        cube_sum = a**3 + b**3
+        if cube_sum <= max_num:
+            sums[cube_sum].append((a, b))
+
+# Находим числа, у которых есть хотя бы два разных представления
+ramanujan_numbers = []
+for num in sums:
+    if len(sums[num]) >= 2:
+        ramanujan_numbers.append(num)
+
+# Сортируем и выводим первые 5 чисел (включая 1729)
+ramanujan_numbers_sorted = sorted(ramanujan_numbers)
+print("Первые 5 чисел, выражаемых как сумма двух кубов двумя разными способами:")
+for num in ramanujan_numbers_sorted[:5]:
+    print(num)

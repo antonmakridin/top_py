@@ -894,7 +894,7 @@
 # i = 2
 # while n % i != 0:
 #     i += 1
-<<<<<<< HEAD
+# <<<<<<< HEAD
 # print(i)
 
 
@@ -933,28 +933,359 @@
 # print(count_0_5)
 
 
-# Словарь для хранения чисел и их представлений в виде суммы кубов
-from collections import defaultdict
+# # Словарь для хранения чисел и их представлений в виде суммы кубов
+# from collections import defaultdict
 
-sums = defaultdict(list)
-max_num = 25000  # Достаточно большое число, чтобы найти первые 5 чисел
+# sums = defaultdict(list)
+# max_num = 25000  # Достаточно большое число, чтобы найти первые 5 чисел
 
-# Перебираем все возможные пары (a, b), где a <= b, чтобы избежать повторов
-for a in range(1, int(max_num ** (1/3)) + 2):
-    for b in range(a, int(max_num ** (1/3)) + 2):
-        cube_sum = a**3 + b**3
-        if cube_sum <= max_num:
-            sums[cube_sum].append((a, b))
+# # Перебираем все возможные пары (a, b), где a <= b, чтобы избежать повторов
+# for a in range(1, int(max_num ** (1/3)) + 2):
+#     for b in range(a, int(max_num ** (1/3)) + 2):
+#         cube_sum = a**3 + b**3
+#         if cube_sum <= max_num:
+#             sums[cube_sum].append((a, b))
 
-# Находим числа, у которых есть хотя бы два разных представления
-ramanujan_numbers = []
-for num in sums:
-    if len(sums[num]) >= 2:
-        ramanujan_numbers.append(num)
+# # Находим числа, у которых есть хотя бы два разных представления
+# ramanujan_numbers = []
+# for num in sums:
+#     if len(sums[num]) >= 2:
+#         ramanujan_numbers.append(num)
 
-# Сортируем и выводим первые 5 чисел (включая 1729)
-ramanujan_numbers_sorted = sorted(ramanujan_numbers)
-print("Первые 5 чисел, выражаемых как сумма двух кубов двумя разными способами:")
-for num in ramanujan_numbers_sorted[:5]:
-    print(num)
-# print(i)
+# # Сортируем и выводим первые 5 чисел (включая 1729)
+# ramanujan_numbers_sorted = sorted(ramanujan_numbers)
+# print("Первые 5 чисел, выражаемых как сумма двух кубов двумя разными способами:")
+# for num in ramanujan_numbers_sorted[:5]:
+#     print(num)
+# # print(i)
+
+
+# string = "abcd1234abcd1234"
+# for i in range(len(string), 0, -1):
+#     print(string[i])
+# string = "abc"
+# rev_string = string[::-1]
+# for i in range(len(rev_string)):
+#     print(rev_string[i])
+
+
+# name = input()
+# surname = input()
+# second_name = input()
+# print(f'{surname[0]}{name[0]}{second_name[0]}')
+
+# s = input()
+# sum = 0
+# for i in range(len(s)):
+#     sum += int(s[i])
+# print(sum)
+
+# string = input()
+# symb = 0
+# for i in range(1, len(string)):
+#     if string[i - 1] == string[i]:
+#         symb += 1
+# print(symb)
+
+# gl = 'ауоыиэяюе'
+# glas = 0
+# sogl = 'бвгджзйклмнпрстфхцчшщ'
+# soglas = 0
+# string = input()
+# string = string.lower()
+# for s in range(len(string)):
+#     if string[s] in gl:
+#         glas += 1
+#     elif string[s] in sogl:
+#         soglas += 1
+# print(f'Количество гласных букв равно {glas}')
+# print(f'Количество согласных букв равно {soglas}')
+
+# #бинарная система исчисления
+# n = int(input())
+# binary = ''
+# while n > 0:
+#     binary = str(n % 2) + binary
+#     n = n // 2
+# print(binary if binary else '0')
+
+
+
+
+# s = input()
+# # общее количество символов в строке;
+# print(len(s))
+# # исходную строку, повторённую 3 раза;
+# print(s + s + s)
+# # первый символ строки;
+# print(s[:1])
+# # первые три символа строки;
+# print(s[:3])
+# # последние три символа строки;
+# print(s[-3:])
+# # строку в обратном порядке;
+# print(s[::-1])
+# # строку с удалённым первым и последним символами.
+# print(s[1:-1])
+
+
+# s = input()
+# # третий символ этой строки;
+# print(s[2:3])
+# # предпоследний символ этой строки;
+# print(s[-2:-1])
+# # первые пять символов этой строки;
+# print(s[:5])
+# # всю строку, кроме последних двух символов;
+# print(s[:-2])
+# # все символы с чётными индексами;
+# print(s[::2])
+# # все символы с нечётными индексами;
+# print(s[1::2])
+# # все символы в обратном порядке;
+# print(s[::-1])
+# # все символы строки через один в обратном порядке, начиная с последнего.
+# print(s[::-2])
+
+
+# s = input()
+# dlina = len(s)
+# if dlina == 1:
+#     print(s)
+# elif dlina % 2 == 0 or dlina == 2:
+#     dlina = int(dlina / 2)
+#     print(f'{s[-dlina:]}{s[:dlina]}')
+# else:
+#     dlina = int((dlina - 1) / 2)
+#     print(f'{s[-(dlina):]}{s[:dlina + 1]}')
+
+# s = 'i LEARN Python LAnguaGE'
+
+# s = 'foO BaR BAZ quX'
+# print(s.capitalize())
+# # Foo123#bar#
+
+# s = 'FOO Bar 123 baz qUX'
+# print(s.swapcase())
+# # foo bAR 123 BAZ Qux
+
+# s = 'the sun also rises'
+# print(s.title())
+# # The Sun Also Rises
+
+# s = "what's happened to ted's IBM stock?"
+# print(s.title())
+# # What'S Happened To Ted'S Ibm Stock?
+
+# s = 'FOO Bar 123 baz qUX'
+# print(s.lower())
+# # foo bar 123 baz qux
+
+# s = 'FOO Bar 123 baz qUX'
+# print(s.upper())
+# # FOO BAR 123 BAZ QUX
+
+
+# s = input()
+# if 'хорош' in s.lower():
+#     print('YES')
+# else:
+#     print('NO')
+
+# string = input()
+# col = 0
+# for s in string:
+#     if s == s.lower() and s.isalpha():
+#         col += 1
+# print(col)
+
+# Метод count()
+# s = 'foo goo moo'
+# print(s.count('oo'))
+# print(s.count('oo', 0, 8))  # подсчет с 0 по 7 символ
+# Метод startswith()
+# s = 'foobar'
+# print(s.startswith('foo'))
+# print(s.startswith('baz'))
+# # True
+# # False
+# Метод endswith()
+# s = 'foobar'
+# print(s.endswith('bar'))
+# print(s.endswith('baz'))
+# # True
+# # False
+# Метод find()
+# s = 'foo bar foo baz foo qux'
+# print(s.find('foo'))
+# print(s.find('bar'))
+# print(s.find('qu'))
+# print(s.find('python'))
+# # 0
+# # 4
+# # 20
+# # -1
+# Метод rfind()
+# Метод index()
+# Метод rindex()
+# Метод strip()
+# s = '     foo bar foo baz foo qux      '
+# print(s.strip())
+# # foo bar foo baz foo qux
+# Метод lstrip()
+# Метод rstrip()
+# Метод replace()
+# s = 'foo bar foo baz foo qux'
+# print(s.replace('foo', 'grault'))
+# # grault bar grault baz grault qux
+# s = 'foo bar foo baz foo qux'
+# print(s.replace('foo', 'grault', 2))
+# # grault bar grault baz foo qux
+# s = '-+-+abc+-+-'
+# print(s.strip('+-'))
+# print(s.rstrip('+-'))
+# print(s.lstrip('+-'))
+# abc    
+# -+-+abc
+# abc+-+-
+
+# s = 'aabbAAccDDaa'
+# s = s.lower()
+# print(s.count('a'))
+
+# s = input()
+# s = s.lower()
+# print("Аденин:", s.count('а'))
+# print('Гуанин:', s.count('г'))
+# print('Цитозин:', s.count('ц'))
+# print('Тимин:', s.count('т'))
+
+# col = int(input())
+# itog = 0
+# for _ in range(col):
+#     s = input()
+#     summa = 0
+#     for _ in range(3):
+#         if s.find('11') >= 0:
+#             summa += 1
+#             s = s.replace('11', 'grault', 1)
+#         if summa == 3:
+#             itog += 1
+# print(itog)
+
+# string = input()
+# summa = 0
+# for s in string:
+#     if s.isdigit():
+#         summa += 1
+# print(summa)
+
+
+# s = input()
+# if s.endswith('.ru') or s.endswith('.com'):
+#     print('YES')
+# else:
+#     print('NO')
+
+
+# # частовстречающийся символ
+# string = input()
+# s_max =''
+# colmax = string.count('string[0]')
+# for s in string:
+#     colm = string.count(s)
+#     string = string.replace(s, '')
+#     if colm > colmax:
+#         colmax = colm
+#         s_max = s
+#     elif colm == colmax:
+#         colmax = colm
+#         s_max = s
+# print(s_max)
+
+
+# string = input()
+# first = string.index('h')
+# allsymb = string.count('h')
+# string = string.replace('h', 'a', allsymb - 1)
+# last = string.index('h') + 1
+# print(f'{string[:first]}{string[last:]}')
+
+
+# # Метод isalnum()
+# s1 = 'abc123'
+# s2 = 'abc$*123'
+# s3 = ''
+# print(s1.isalnum())
+# print(s2.isalnum())
+# print(s3.isalnum())
+# True
+# False
+# False
+# s1 = 'BEEGEEK'
+# s2 = '2202'
+# print(s1.isalnum())
+# print(s2.isalnum())
+# True
+# True
+# # Метод isalpha()
+# s1 = 'ABCabc'
+# s2 = 'abc123'
+# s3 = ''
+# print(s1.isalpha())
+# print(s2.isalpha())
+# print(s3.isalpha())
+# True
+# False
+# False
+# # Метод isdigit()
+# s1 = '1234567'
+# s2 = 'abc123'
+# s3 = ''
+# print(s1.isdigit())
+# print(s2.isdigit())
+# print(s3.isdigit())
+# True
+# False
+# False
+# # Метод islower()
+# s1 = 'abc'
+# s2 = 'abc1$d'
+# s3 = 'Abc1$D'
+# print(s1.islower())
+# print(s2.islower())
+# print(s3.islower())
+# True
+# True
+# False
+# # Метод isupper()
+# s1 = 'ABC'
+# s2 = 'ABC1$D'
+# s3 = 'Abc1$D'
+# print(s1.isupper())
+# print(s2.isupper())
+# print(s3.isupper())
+# True
+# True
+# False
+# # Метод isspace()
+# s1 = '       '
+# s2 = 'abc1$d'
+# print(s1.isspace())
+# print(s2.isspace())
+# True
+# False
+
+
+col = int(input())
+itog = 0
+for _ in range(col):
+    s = input()
+    summa = 0
+    for _ in range(3):
+        if s.find('11') >= 0:
+            summa += 1
+            s = s.replace('11', 'grault', 1)
+        if summa == 3:
+            itog += 1
+print(itog)

@@ -29,21 +29,21 @@
 
 
 
-# import json
-# # чтение из json
-# with open('2025-06-27\\db.json', 'r', encoding='utf-8') as f:
-#     data = json.load(f)
-#     u = input('Введи имя пользователя: ')
-#     p = input('Введи пароль пользователя: ')
-#     for d in data:
-#     #выводим на экран
-#         if u == d['name'] and p == d['password']:
-#             print('Доступ разрешен')
-#             for s in d['skills']:
-#                 print(f"skil: {s}")
-#             break
-#     else:
-#         print('Доступ запрещен')
+import json
+# чтение из json
+with open('2025-06-27\\db.json', 'r', encoding='utf-8') as f:
+    data = json.load(f)
+    u = input('Введи имя пользователя: ')
+    p = input('Введи пароль пользователя: ')
+    for d in data:
+    #выводим на экран
+        if u == d['name'] and p == d['password']:
+            print('Доступ разрешен')
+            for s in d['skills']:
+                print(f"skil: {s}")
+            break
+    else:
+        print('Доступ запрещен')
 
 
 

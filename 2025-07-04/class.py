@@ -178,9 +178,6 @@
 #         break
 
 
-# s = input()
-# # третий символ этой строки;
-# print(s[2:3])
 
 import json
 import random
@@ -192,6 +189,21 @@ def take_word():
             word = words[i]
         value = word["word"]
         return value
+        
+def replace_word(word, word_user):
+    ok = '_____'
+    dict_upd = {}
+    for j in range(5):
+        if word[j] == word_user[j]:
+            dict_upd.update({j: '*' + word_user[j] + '*'})
+        elif word[j] != word_user[j] and word_user[j] in word:
+            dict_upd.update({j: '-' + word_user[j] + '-'})
+    new_ok = ' '.join(
+        dict_upd.get(i, char)
+        for i, char in enumerate(ok)
+    )
+    return new_ok
+
 word = take_word()
 print(word)
 for i in range(1, 6):
@@ -201,11 +213,8 @@ for i in range(1, 6):
         print('Длина слова не 5 символов')
     else:
         if word == word_user:
-            print('угадал')
+            print('Угадал')
             break
-        ok = '_____'
-        for j in range(5):
-            if word[j] == word_user[j]:
-                print(word[j], word_user[j])
-                ok = ok[:j] + word[j] + ok[j+1:]
-        print(ok)
+        else:
+            print(replace_word(word, word_user))
+print('Не угадал')

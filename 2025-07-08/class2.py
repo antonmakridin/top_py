@@ -1,5 +1,6 @@
 import time
 import requests
+import random
 
 TOKEN = "7305551623:AAH0quKy8Rc5zVkl2FkXlD3G75C0xurWvi0"
 URL = f"https://api.telegram.org/bot{TOKEN}/getUpdates"
@@ -29,6 +30,16 @@ def play_game(user_id, text):
     e = 3
     while e > 0:
         send_message(user_id, text)
+        
+
+rand_num = random.randint(1, 3)
+print(rand_num)
+print('Угадай число от 1 до 3')
+for i in range(3):
+    num = int(input('Число: '))
+    if num == rand_num:
+        print('Угадал')
+        break
 
 
 # задаем вопрос загадай

@@ -1277,15 +1277,123 @@
 # False
 
 
-col = int(input())
-itog = 0
-for _ in range(col):
-    s = input()
-    summa = 0
-    for _ in range(3):
-        if s.find('11') >= 0:
-            summa += 1
-            s = s.replace('11', 'grault', 1)
-        if summa == 3:
-            itog += 1
-print(itog)
+# col = int(input())
+# itog = 0
+# for _ in range(col):
+#     s = input()
+#     summa = 0
+#     for _ in range(3):
+#         if s.find('11') >= 0:
+#             summa += 1
+#             s = s.replace('11', 'grault', 1)
+#         if summa == 3:
+#             itog += 1
+# print(itog)
+
+
+# col = int(input())
+# itog = ''
+# for i in range(1, col + 1):
+#     s = input()
+#     if s == "" or s.isspace():
+#         itog += str(i) + ': COMMENT SHOULD BE DELETED' + '\n'
+#     else:
+#         itog += str(i) + ': ' + s + '\n'
+# print(itog)
+
+# # А123АА_66
+# # А123АА_669
+# number = input().strip()
+# correct_letters = 'АВЕКМНОРСТУХ'  # Только кириллица
+# valid = True
+
+# # Проверяем длину (9 или 10 символов, если номер с 3 цифрами в конце)
+# if len(number) not in (9, 10):  # Исправлено с (8,9) на (9,10)
+#     valid = False
+# else:
+#     if number.count('_') != 1:
+#         valid = False
+#     else:
+#         left_part, right_part = number.split('_')
+        
+#         # Левая часть: 6 символов (буква + 3 цифры + 2 буквы)
+#         if len(left_part) != 6:
+#             valid = False
+#         else:
+#             # Проверяем первую букву
+#             if left_part[0] not in correct_letters:
+#                 valid = False
+#             # Проверяем цифры (1-3 символы)
+#             if not (left_part[1].isdigit() and left_part[2].isdigit() and left_part[3].isdigit()):
+#                 valid = False
+#             # Проверяем последние 2 буквы
+#             if left_part[4] not in correct_letters or left_part[5] not in correct_letters:
+#                 valid = False
+        
+#         # Правая часть: 2 или 3 цифры
+#         if len(right_part) not in (2, 3) or not right_part.isdigit():
+#             valid = False
+
+# print('YES' if valid else 'NO')
+
+
+# никнейм
+# nikname = input()
+# valid = True
+# if len(nikname) not in range(5, 16):
+#     valid = False
+# else:
+#     if nikname[0] != '@' or nikname.count('@') != 1:
+#         valid = False
+#     else:
+#         left_part, right_part = nikname.split('@')
+        
+#         # Левая часть: 6 символов (буква + 3 цифры + 2 буквы)
+#         if len(left_part) > 0:
+#             valid = False
+#         # Правая часть
+#         if right_part != right_part.lower():
+#             valid = False
+#         elif not (right_part.isdigit() or right_part.isalpha() or right_part.isalnum()):
+#             valid = False
+# print('Correct' if valid else 'Incorrect')
+
+
+# first_name = 'Taylor'
+# second_name = 'Swift'
+# country = 'USA'
+# birth_date = '1989/12/13'
+# birth_place = 'West Reading, Pennsylvania'
+# text = '{0} {1} is a very famous singer from the {2}. She was born on {3} in {4}.'.format(first_name, second_name, country, birth_date, birth_place)
+# print(text)
+# # Taylor Swift is a very famous singer from the USA. She was born on 1989/12/13 in West Reading, Pennsylvania.
+
+
+# first_name = 'Taylor'
+# last_name = 'Swift'
+# country = 'USA'
+# birth_date = '1989/12/13'
+# birth_place = 'West Reading, Pennsylvania'
+# text = f'{first_name} {last_name} is a very famous singer from the {country}. She was born on {birth_date} in {birth_place}.'
+# print(text)
+# # Taylor Swift is a very famous singer from the USA. She was born on 1989/12/13 in West Reading, Pennsylvania.
+
+# date = input()
+# evro = input()
+# yuan = input()
+# text = f'На {date}: 1€ = {evro}₽, 1¥ = {yuan}₽.'
+# print(text)
+
+
+# a = int(input())
+# b = int(input())
+# text = f'Для чисел {a} и {b}:\n  Сумма кубов: {a}**3 + {b}**3 = {a ** 3 + b ** 3}\n  Куб суммы: ({a} + {b})**3 = {(a + b) ** 3}'
+# print(text)
+
+
+day = int(input())
+weight = float(input())
+if weight <= 100 - day * 0.2:
+    print(f'Все идет по плану\n#{day} ДЕНЬ: ТЕКУЩИЙ ВЕС = {weight} кг, ЦЕЛЬ по ВЕСУ = {100 - day * 0.2} кг')
+else:
+    print(f'Что-то пошло не так\n#{day} ДЕНЬ: ТЕКУЩИЙ ВЕС = {weight} кг, ЦЕЛЬ по ВЕСУ = {100 - day * 0.2} кг')

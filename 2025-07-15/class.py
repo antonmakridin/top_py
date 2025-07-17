@@ -5,11 +5,12 @@ import json
 
 start_num = 1
 end_num = 5
-game_status = {'in_game': False} # храним данные об играх каждого пользователя
-check_status = {'in_shop': False}
-del_status = {'delete': False}
+game_status = {} # храним данные об играх каждого пользователя
+check_status = {}
+del_status = {}
+cour_status = {}
 user_admin = 496775340
-variant_answer = ["Норм", "Хорошо", "Отлично!"]
+
 
 TOKEN = "7305551623:AAH0quKy8Rc5zVkl2FkXlD3G75C0xurWvi0"
 
@@ -29,7 +30,7 @@ def send_message(chat_id, text):
     response = requests.get(url, params=params)
     return response.json()
 
-def send_game_button(chat_id, text):
+def send_buttons(chat_id, text):
     url = f'https://api.telegram.org/bot{TOKEN}/sendMessage'
     params = {
         'chat_id': chat_id,
@@ -37,9 +38,9 @@ def send_game_button(chat_id, text):
         'reply_markup': {
             'keyboard': [
                 [{'text': 'Сыграем'}],
-                [{'text': 'Добавить товар'}],
-                [{'text': 'Удалить товар(ы)'}],
-                [{'text': 'Список товаров'}]
+                [{'text': 'Управление покупками'}],
+                [{'text': 'Прислать факт'}],
+                [{'text': 'Конвертер валюты'}]
             ],
             'resize_keyboard': True,
             'one_time_keyboard': True
@@ -49,12 +50,61 @@ def send_game_button(chat_id, text):
     response = requests.post(url, headers=headers, data=json.dumps(params))
     return response.json()
 
+def tovar_buttons(chat_id, text):
+    url = f'https://api.telegram.org/bot{TOKEN}/sendMessage'
+    params = {
+        'chat_id': chat_id,
+        'text': text,
+        'reply_markup': {
+            'keyboard': [
+                [{'text': 'Добавить товар'}],
+                [{'text': 'Удалить товар(ы)'}],
+                [{'text': 'Список товаров'}],
+                [{'text': 'Назад в главное меню'}]
+            ],
+            'resize_keyboard': True,
+            'one_time_keyboard': True
+        }
+    }
+    headers = {'Content-Type': 'application/json'}
+    response = requests.post(url, headers=headers, data=json.dumps(params))
+    return response.json()
+
+def send_facts(user_id):
+    # генерируем факт
+    with open('2025-07-15\\facts.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    random_fact = random.choice(data)
+
+    # Вывод результата
+    cat = 'Категория: ' + random_fact['name']
+    fact = 'Факт: ' + random_fact['fact']
+    send_message(user_id, cat)
+    send_message(user_id, fact)
+    return
+
 def start_game(user_id):
     # запускаем игру
     game_status[user_id] = {'right_answer': random.randint(start_num, end_num), 'attempts': 3, 'in_game': True}
     message = 'Угадай число от ' + str(start_num) + ' до ' + str(end_num) + '. У тебя 3 попытки'
     send_message(user_id, message)
     
+def start_course(user_id):
+    # запускаем конвертер
+    cour_status[user_id] = {'course': True}
+    message = 'Введи сумму в рублях для конвертации в доллары'
+    send_message(user_id, message)
+    
+def start_add_tovar(user_id):
+    check_status[user_id] = {'in_shop': True}
+    message = 'Добавь товар и его стоимость через тире (-)'
+    send_message(user_id, message)
+
+def start_delete_tovar(user_id):
+    del_status[user_id] = {'delete': True}
+    message = 'Напиши название товара для удаления (или "все")'
+    send_message(user_id, message)
+
 def process_answer(user_id, answer):
     # чекаем введенные пользователем символы
     if not answer.isdigit():
@@ -83,57 +133,6 @@ def process_answer(user_id, answer):
         message = 'Игра окончена. Я загадал число - ' + str(game_data['right_answer'])
         send_message(user_id, message)
         game_data['in_game'] = False
-
-def start_add_tovar(user_id):
-    check_status[user_id] = {'in_shop': True}
-    message = 'Добавь товар и его стоимость через тире (-)'
-    send_message(user_id, message)
-
-def start_delete_tovar(user_id):
-    del_status[user_id] = {'delete': True}
-    message = 'Напиши название товара для удаления (или "все")'
-    send_message(user_id, message)
-
-def process_delete_tovar(user_id, answer):
-    # чекаем статус
-    check_del = del_status[user_id]
-    # чекаем введенные пользователем символы
-
-    if answer.lower() == 'все':
-        with open('2025-07-15\\buy.json', 'w', encoding='utf-8') as f:
-            tovars = json.load(f)
-        for w in tovars:
-            if user_id == w['user_id']:
-                tovars.remove(w)
-                send_message(user_id, 'Товары удалены')
-                check_del['delete'] = False
-                return
-
-    if len(answer) == 0:
-        send_message(user_id, 'Неверно указано название товара')
-        check_del['delete'] = False
-        return
-    
-    # if answer == 'авы':
-    #     with open('2025-07-15\\buy.json', 'r', encoding='utf-8') as f:
-    #         data = json.load(f)
-    #         send_message(user_id, 'Вот Ваш список товаров:')
-    #         for d in data:
-    #             if d['user_id'] == user_id:
-    #                 mess = d['name'] + ' ' + str(d['price'])
-    #                 send_message(user_id, mess)
-    #     return
-    with open('2025-07-15\\buy.json', 'r', encoding='utf-8') as f:
-        tovars = json.load(f)
-    new_tovars = []
-    for w in tovars:
-        if w['name'] != answer and w['user_id'] != user_id:
-            new_tovars.append(w)
-        with open('2025-07-15\\buy.json', 'w', encoding='utf-8') as f:
-            json.dump(new_tovars, f, ensure_ascii=True, indent=4)
-    send_message(user_id, 'Товар удален')
-    check_del['delete'] = False
-    return
 
 def process_add_tovar(user_id, answer):
     # чекаем статус
@@ -182,6 +181,45 @@ def process_add_tovar(user_id, answer):
         check_data['in_shop'] = False
         return
 
+def process_delete_tovar(user_id, answer):
+    # чекаем статус
+    check_del = del_status[user_id]
+    # чекаем введенные пользователем символы
+
+    if answer.lower() == 'все':
+        with open('2025-07-15\\buy.json', 'r', encoding='utf-8') as f:
+            tovars = json.load(f)
+        new_tovars = []
+        for w in tovars:
+            if w['user_id'] == user_id:
+                continue
+            else:
+                new_tovars.append(w)
+        with open('2025-07-15\\buy.json', 'w', encoding='utf-8') as f:
+            json.dump(new_tovars, f, ensure_ascii=True, indent=4)
+        send_message(user_id, 'Товары удалены')
+        check_del['delete'] = False
+        return
+
+    if len(answer) == 0:
+        send_message(user_id, 'Неверно указано название товара')
+        check_del['delete'] = False
+        return
+    
+    with open('2025-07-15\\buy.json', 'r', encoding='utf-8') as f:
+        tovars = json.load(f)
+    new_tovars = []
+    for w in tovars:
+        if w['name'] == answer and w['user_id'] == user_id:
+            continue
+        else:
+            new_tovars.append(w)
+    with open('2025-07-15\\buy.json', 'w', encoding='utf-8') as f:
+        json.dump(new_tovars, f, ensure_ascii=True, indent=4)
+    send_message(user_id, 'Товар удален')
+    check_del['delete'] = False
+    return
+
 def process_list_tover(user_id):
     with open('2025-07-15\\buy.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -191,6 +229,27 @@ def process_list_tover(user_id):
                 mess = d['name'] + ' ' + str(d['price'])
                 send_message(user_id, mess)
     return
+
+def process_course(user_id, answer):
+    # чекаем введенные пользователем символы
+    if not answer.isdigit():
+        send_message(user_id, 'Вы ввели не только цифры')
+        return
+    
+    answers = int(answer)
+    if answers == 0:
+        message = 'Сумма для конвертации должна быть > 0'
+        send_message(user_id, message)
+        return
+    
+    cour_data = cour_status[user_id]
+
+    urld = 'https://www.cbr-xml-daily.ru/daily_json.js'
+    response = requests.get(urld)
+    usd_rate = response.json()['Valute']['USD']['Value']
+    message = 'Вы получите: ' + str(int(answer) / usd_rate) + ' $'
+    send_message(user_id, message)
+    cour_data['course'] = False
 
 def check_updates():
     last_update_id = None
@@ -207,10 +266,14 @@ def check_updates():
                     
                     if text == 'Сыграем':
                         start_game(user_id)
-                    # elif text.lower() == '/start':
-                    #     send_game_button(user_id, 'Нажми кнопку "Сыграем", чтобы начать игру!')
+                    elif text == 'Управление покупками':
+                        tovar_buttons(user_id, 'Выбери действие из меню')
+                    elif text == 'Назад в главное меню':
+                        send_buttons(user_id, 'Выбери действие из меню')
                     elif text == 'Добавить товар':
                         start_add_tovar(user_id)
+                    elif text == 'Конвертер валюты':
+                        start_course(user_id)
                     elif user_id in check_status and check_status[user_id]['in_shop']:
                         process_add_tovar(user_id, text)
                     elif text == 'Удалить товар(ы)':
@@ -221,12 +284,12 @@ def check_updates():
                         process_list_tover(user_id)
                     elif user_id in game_status and game_status[user_id]['in_game']:
                         process_answer(user_id, text)
-                    elif 'как дела' in text:
-                        send_message(user_id, random.choice(variant_answer))
-                    elif 'загадай число' in text:
-                        send_message(user_id, f"Вот твое число: {random.randint(1, 10)}")
+                    elif 'Прислать факт' in text:
+                        send_facts(user_id)
+                    elif user_id in cour_status and cour_status[user_id]['course']:
+                        process_course(user_id, text)
 
         time.sleep(1)
 
-send_game_button(user_admin, 'Бот запущен. Выбери действие из меню')
+send_buttons(user_admin, 'Бот запущен. Выбери действие из меню')
 check_updates()

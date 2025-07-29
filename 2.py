@@ -1391,9 +1391,114 @@
 # print(text)
 
 
-day = int(input())
-weight = float(input())
-if weight <= 100 - day * 0.2:
-    print(f'Все идет по плану\n#{day} ДЕНЬ: ТЕКУЩИЙ ВЕС = {weight} кг, ЦЕЛЬ по ВЕСУ = {100 - day * 0.2} кг')
+# day = int(input())
+# weight = float(input())
+# if weight <= 100 - day * 0.2:
+#     print(f'Все идет по плану\n#{day} ДЕНЬ: ТЕКУЩИЙ ВЕС = {weight} кг, ЦЕЛЬ по ВЕСУ = {100 - day * 0.2} кг')
+# else:
+#     print(f'Что-то пошло не так\n#{day} ДЕНЬ: ТЕКУЩИЙ ВЕС = {weight} кг, ЦЕЛЬ по ВЕСУ = {100 - day * 0.2} кг')
+
+# value = input()
+# if value == 'Я':
+#     print('Дальше букв нет')
+# else:
+#     print(chr(ord(value) + 1))
+
+# one = int(input())
+# two = int(input())
+# for i in range(one, two + 1):
+#     print(chr(i), end=' ')
+
+
+# string = input()
+# for s in string:
+#     print(ord(s), end=' ')
+
+# slovo1 = input()
+# sum_slovo1 = 0
+# slovo2 = input()
+# sum_slovo2 = 0
+# slovo3 = input()
+# sum_slovo3 = 0
+# slovo4 = input()
+# sum_slovo4 = 0
+# for s in slovo1:
+#     sum_slovo1 += ord(s)
+# for s in slovo2:
+#     sum_slovo2 += ord(s)
+# for s in slovo3:
+#     sum_slovo3 += ord(s)
+# for s in slovo4:
+#     sum_slovo4 += ord(s)
+# max_slovo = slovo1
+# max_summa = sum_slovo1
+# if sum_slovo2 > sum_slovo1:
+#     max_summa = sum_slovo2
+#     max_slovo = slovo2
+# if sum_slovo3 > max_summa:
+#     max_summa = sum_slovo3
+#     max_slovo = slovo3
+# if sum_slovo4 > max_summa:
+#     max_summa = sum_slovo3
+#     max_slovo = slovo4
+# print(max_slovo)
+
+# words = [input() for _ in range(4)]
+# sums = [sum(ord(c) for c in word) for word in words]
+# max_index = sums.index(max(sums))
+# print(words[max_index])
+
+
+# string = input()
+# rus = 'еуорахсЕТОРАНХСВМ'
+# eng = 'eyopaxcETOPAHXCBM'
+# new_string = []
+# print(f"Старая стоимость: {sum(ord(s) for s in string) * 3}🐝")
+# for s in string:
+#     if s in eng:
+#         s = rus[eng.index(s)]
+#     new_string.append(s)
+# print(f"Новая стоимость: {sum(ord(s) for s in new_string) * 3}🐝")
+
+
+# col = int(input())
+# string = input()
+# for s in string:
+#     razn = ord(s) - col
+#     if razn < 97:
+#         razn = 26 + (ord(s) - col)
+#     print(chr(razn), end='')
+
+
+# string = input()
+# new_string = []
+# i = 0
+# while i < len(string):
+#     if string[i] == '[' and i+1 < len(string) and string[i+1] == 'u' and string[i+2] == '-':
+#         # Нашли начало кода символа
+#         end = string.find(']', i)
+#         if end == -1:
+#             break  # нет закрывающей скобки
+#         code = string[i+3:end]
+#         try:
+#             char = chr(int(code))
+#             new_string.append(char)
+#             i = end + 1
+#         except ValueError:
+#             new_string.append(string[i])
+#             i += 1
+#     else:
+#         new_string.append(string[i])
+#         i += 1
+
+# print(''.join(new_string))
+
+answer = 'fdsfdsfsd-dsad'
+status = ''
+if answer.find('-') != -1:
+    answer = answer.split('-')
+    name = answer[0].strip()
+    status = answer[1].strip()
 else:
-    print(f'Что-то пошло не так\n#{day} ДЕНЬ: ТЕКУЩИЙ ВЕС = {weight} кг, ЦЕЛЬ по ВЕСУ = {100 - day * 0.2} кг')
+    name = answer
+print(name, status)

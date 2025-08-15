@@ -1493,12 +1493,188 @@
 
 # print(''.join(new_string))
 
-answer = 'fdsfdsfsd-dsad'
-status = ''
-if answer.find('-') != -1:
-    answer = answer.split('-')
-    name = answer[0].strip()
-    status = answer[1].strip()
-else:
-    name = answer
-print(name, status)
+# answer = 'fdsfdsfsd-dsad'
+# status = ''
+# if answer.find('-') != -1:
+#     answer = answer.split('-')
+#     name = answer[0].strip()
+#     status = answer[1].strip()
+# else:
+#     name = answer
+# print(name, status)
+
+
+# # проверка СНИЛС
+# import re
+
+# def is_gps_valid(gps):
+#     # Оставляем только цифры
+#     gps = re.sub(r'[^0-9]', '', str(gps))
+    
+#     if len(gps) == 11:
+#         checksum = 0
+#         for i in range(9):
+#             checksum += int(gps[i]) * (9 - i)
+        
+#         if checksum > 101:
+#             checksum = checksum % 101
+        
+#         if checksum in (100, 101):
+#             checksum = 0
+        
+#         return checksum == int(gps[9:])
+    
+#     return False
+
+# # Пример использования:
+# gps_number = input("Введите GPS номер: ")
+# print("Номер валиден" if is_gps_valid(gps_number) else "Номер невалиден")
+
+
+# l = ['a','a10','a9','a11']
+# l.sort()
+# print(l)
+
+# a = []
+# for _ in range(4):
+#     string = input()
+#     a.append(string)
+# print((ord(min(a)[-1]) * ord(max(a)[-1])) ** 2)
+
+# print(ord('0'), ord('9'), ord('А'), ord('П'), ord('Ё'))
+# 48 57 1040 1055 1025
+
+# num = int(input())
+# itog = []
+# for _ in range(num):
+#     k = input()
+#     if len(k) == 2:
+#         nomer = k[0]
+#         bukva = k[1]
+#         if ord('0') <= ord(nomer) <= ord('9') and ord('А') <= ord(bukva) <= ord('П') and ord(bukva) != ord('Ё'):
+#             itog.append('YES')
+#         else:
+#             itog.append('NO')
+#     else:
+#         itog.append('NO')
+# print('\n'.join(itog))
+
+
+# aaa = ord('a') - ord('A')
+# bbb = ord('b') - ord('B')
+# print(aaa, bbb)
+# print(ord('a'), ord('z'))
+# print(ord('A'), ord('Z'))
+
+# посимвольное сравнение строк
+# s_one = input()
+# s_two = input()
+# str_one = []
+# str_two = []
+# t = 0
+# for s in s_one:
+#     if s.isalpha():
+#         str_one.append(s)
+# for w in s_two:
+#     if w.isalpha():
+#         str_two.append(w)
+# if len(str_one) == len(str_two):
+#     for i in range(len(str_one)):
+#         if ord(str_one[i]) == ord(str_two[i]) or abs(ord(str_one[i]) - ord(str_two[i])) == 32:
+#             t += 0
+#         else:
+#             t += 1
+# else:
+#     t = 1
+# if t == 0:
+#     print('YES')
+# else:
+#     print('NO')
+
+# n = int(input())
+# books = [input().strip() for _ in range(n)]
+
+# def get_key(book):
+#     # Разделяем на фамилию и остальное
+#     surname_part = book.split(' ')[0]  # Берём часть до запятой (фамилия + возможные пробелы)
+#     surname = surname_part.strip()  # Убираем лишние пробелы - остаётся только фамилия
+    
+#     # Извлекаем название книги (между « и »)
+#     title_start = book.find('«') + 1
+#     title_end = book.find('»')
+#     title = book[title_start:title_end].strip()
+    
+#     return (surname, title)
+
+# is_sorted = True
+
+# for i in range(len(books) - 1):
+#     current = get_key(books[i])
+#     next_book = get_key(books[i + 1])
+    
+#     # Сравниваем сначала фамилии, затем названия
+#     if current > next_book:
+#         is_sorted = False
+#         break
+
+# print("YES" if is_sorted else "NO")
+
+
+# t = int(input())
+# print(list(range(1, t+1)))
+
+
+# 97 chr ord
+# t = int(input())
+# li = []
+# for i in range(t):
+#     li.append(chr(i+97))
+# print(li)
+
+
+# evens = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+# average = sum(evens) / len(evens)
+# print(average)
+
+
+# rainbow = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet']
+# rainbow[rainbow.index('Green')] = 'Зеленый'
+# rainbow[rainbow.index('Violet')] = 'Фиолетовый'
+# print(rainbow)
+
+# languages = ['Chinese', 'Spanish', 'English', 'Hindi', 'Arabic', 'Bengali', 'Portuguese', 'Russian', 'Japanese', 'Lahnda']
+# l = len(languages) - 1
+# new_lang = []
+# while l >= 0:
+#     new_lang.append(languages[l])
+#     l -= 1
+# print(new_lang)
+
+# languages = ['Chinese', 'Spanish', 'English', 'Hindi', 'Arabic', 'Bengali', 'Portuguese', 'Russian', 'Japanese', 'Lahnda']
+# print(languages.reverse())
+
+# numbers1 = [1, 2, 3]
+# numbers2 = [6]
+# numbers3 = [7, 8, 9, 10, 11, 12, 13]
+# print(numbers1 * 2 + numbers2 * 9 + numbers3)
+# # [1, 2, 3, 1, 2, 3, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 8, 9, 10, 11, 12, 13]
+
+# li = []
+# for i in range(97,123):
+#     li.append(chr(i) * (i - 96))
+# print(li)
+
+
+# num = int(input())
+# itog = []
+# for _ in range(num):
+#     ch = int(input())
+#     itog.append(ch ** 3)
+# print(itog)
+
+num = int(input())
+itog = []
+for i in range(1, num + 1):
+    if num % i == 0:
+        itog.append(i)
+print(itog)

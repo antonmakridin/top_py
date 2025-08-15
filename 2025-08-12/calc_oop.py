@@ -25,8 +25,10 @@ class Calculator:
 
     def multi(self, a, b):
         """Метод для умножения"""
-        self.operations += 1
-        return a * b
+        if self.check_limit() == False:
+            self.operations += 1
+            return a * b
+        return 'Операции истекли'
 
     def check_limit(self):
         """Проверка лимита на операции"""

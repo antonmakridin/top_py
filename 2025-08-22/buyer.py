@@ -255,5 +255,4 @@ def main_menu():
 
 
 # Запуск программы
-if __name__ == "__main__":
-    main_menu()
+main_menu()

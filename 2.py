@@ -1672,9 +1672,24 @@
 #     itog.append(ch ** 3)
 # print(itog)
 
-num = int(input())
-itog = []
-for i in range(1, num + 1):
-    if num % i == 0:
-        itog.append(i)
-print(itog)
+# num = int(input())
+# itog = []
+# for i in range(1, num + 1):
+#     if num % i == 0:
+#         itog.append(i)
+# print(itog)
+
+
+class User:
+    def __init__(self, money):
+        self.money = money
+        self.total_purchases = 0
+    
+    def __str__(self):
+        return f"Пользователь: денег - {self.money}, покупок - {self.total_purchases}"
+
+# Использование:
+user = User(200)
+user.total_purchases = 3
+
+print(user)  

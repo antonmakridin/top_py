@@ -13,7 +13,7 @@ class YandexGPT():
             "completionOptions": {
                 "stream": False,
                 "temperature": 0.4,
-                "maxTokens": 100,
+                "maxTokens": 1000,
                 "reasoningOptions": {
                     "mode": "DISABLED"
                 }

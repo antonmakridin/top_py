@@ -1,9 +1,8 @@
 import streamlit as st
 from yandex import YandexGPT
-token = 'AQVNwEo4xD0mPA7lXzS4sCGLHp3K8uenS6I9eho5'
-catalog = 'b1goak37d5prthkdfd7n'
 
-yandex = YandexGPT(token, catalog)
+
+yandex = YandexGPT()
 
 st.title("Сбор данных")
 

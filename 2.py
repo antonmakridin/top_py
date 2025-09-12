@@ -1680,16 +1680,25 @@
 # print(itog)
 
 
-class User:
-    def __init__(self, money):
-        self.money = money
-        self.total_purchases = 0
+# class User:
+#     def __init__(self, money):
+#         self.money = money
+#         self.total_purchases = 0
     
-    def __str__(self):
-        return f"Пользователь: денег - {self.money}, покупок - {self.total_purchases}"
+#     def __str__(self):
+#         return f"Пользователь: денег - {self.money}, покупок - {self.total_purchases}"
 
-# Использование:
-user = User(200)
-user.total_purchases = 3
+# # Использование:
+# user = User(200)
+# user.total_purchases = 3
 
-print(user)  
+# print(user)  
+
+
+class Person:
+    def __init__(self):
+        self.__code = "1234"
+
+s = Person()
+print(s.__code)
+

@@ -4,8 +4,8 @@ import os
 
 url = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion'
 
-API_TOKEN = 'AQVNwEo4xD0mPA7lXzS4sCGLHp3K8uenS6I9eho5'
-CATALOG = 'b1goak37d5prthkdfd7n'
+API_TOKEN = 'dsanS6I9eho5'
+CATALOG = 'b1sk37d7n'
 
 class DB:
     def __init__(self, filename):

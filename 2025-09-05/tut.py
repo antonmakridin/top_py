@@ -1,5 +1,5 @@
 import streamlit as st
-from yandex import YandexGPT
+from yandexkey import YandexGPT
 
 yandex = YandexGPT()
 

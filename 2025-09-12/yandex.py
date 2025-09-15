@@ -1,10 +1,13 @@
 import requests
 
+token = 2
+catalog = 3
+
 class YandexGPT():
 
     def __init__(self):
-        self.token = 'AQVNwEo4xD0mPA7lXzS4sCGLHp3K8uenS6I9eho5'
-        self.catalog = 'b1goak37d5prthkdfd7n'
+        self.token = token
+        self.catalog = catalog
         self.url = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion'
 
     def get_answer(self, text):

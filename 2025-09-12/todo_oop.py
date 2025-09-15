@@ -2,7 +2,7 @@ import requests
 import time
 import os
 import random
-from yandex import YandexGPT
+from yandexkey import YandexGPT
 
 class TelegramAPI:
     

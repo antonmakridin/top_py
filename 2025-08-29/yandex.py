@@ -2,8 +2,8 @@ import requests
 
 url = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion'
 
-API_TOKEN = 'AQVNwEo4xD0mPA7lXzS4sCGLHp3K8uenS6I9eho5'
-CATALOG = 'b1goak37d5prthkdfd7n'
+API_TOKEN = 'AQVNwEo4xD0so5'
+CATALOG = 'b1gdn'
 
 def get_answer(text):
     data = {

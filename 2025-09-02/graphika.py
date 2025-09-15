@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from yandex import YandexGPT
+from yandexkey import YandexGPT
 
 yandex = YandexGPT()
 

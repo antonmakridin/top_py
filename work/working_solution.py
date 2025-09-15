@@ -8,7 +8,7 @@ import json
 # Конфигурация
 YC_API_KEY = 'AQVNwEo4xD0mPA7lXzS4sCGLHp3K8uenS6I9eho5'
 YC_FOLDER_ID = 'b1goak37d5prthkdfd7n'
-CSV_FILE_PATH = "D:\\work\\TOP\\html\\top_py\\work\\chroma.csv"
+CSV_FILE_PATH = "D:\\work\\TOP\\top_py\\work\\chroma.csv"
 
 print("🚀 Запуск чат-бота с вашей базой CSV...")
 

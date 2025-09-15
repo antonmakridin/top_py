@@ -32,7 +32,7 @@ dela_menu = {
     ]
 }
 
-TOKEN = "7305551623:AAH0quKy8Rc5zVkl2FkXlD3G75C0xurWvi0"
+TOKEN = "dsadsa"
 
 id_last_message = ''
 

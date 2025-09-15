@@ -9,7 +9,7 @@ game_status = {} # храним данные об играх каждого по
 user_admin = 496775340
 variant_answer = ["Норм", "Хорошо", "Отлично!"]
 
-TOKEN = "7305551623:AAH0quKy8Rc5zVkl2FkXlD3G75C0xurWvi0"
+TOKEN = "sdsadsa"
 
 id_last_message = ''
 

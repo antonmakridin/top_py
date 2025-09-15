@@ -1,6 +1,6 @@
 import requests
 from pprint import pprint
-TOKEN = '7305551623:AAH0quKy8Rc5zVkl2FkXlD3G75C0xurWvi0' 
+TOKEN = 'dsadsa' 
 
 def check_bot():
     url = f'https://api.telegram.org/bot{TOKEN}/getMe'  

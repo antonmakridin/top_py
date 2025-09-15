@@ -4,7 +4,7 @@ import time
 user_admin = 496775340
 id_last_message = ''
 
-TOKEN = "8017111976:AAGFVLJVfM2q5HNuRwGYr3V7yoM6eWQK_0I"
+TOKEN = "sadsadsa"
 
 def get_updates():
     url = f"https://api.telegram.org/bot{TOKEN}/getUpdates?offset=-1"

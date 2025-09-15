@@ -12,7 +12,7 @@ cour_status = {}
 user_admin = 496775340
 
 
-TOKEN = "7305551623:AAH0quKy8Rc5zVkl2FkXlD3G75C0xurWvi0"
+TOKEN = "dsadsadsa"
 
 id_last_message = ''
 

@@ -23,7 +23,7 @@ class Weather:
 
 user_lat = float(input('Введи широту: '))
 user_lon = float(input('Введи долготу: '))
-token = '8ae52edcb4fb242a16df41725340c407'
+token = 'dsds'
 
 weather = Weather(token, user_lat, user_lon)
 print(weather.format_weather())

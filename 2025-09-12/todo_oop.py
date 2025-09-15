@@ -103,7 +103,7 @@ def send_photo(chat_id):
     
     telegram_api.send_photo(chat_id, random_jpg_file, caption)
     
-token = "7305551623:AAHXWHs6FhqlctegHnVUYhhq_MQFyab9ddw"
+token = "sss"
 MY_CHAT = 496775340
 
 telegram_api = TelegramAPI(token)

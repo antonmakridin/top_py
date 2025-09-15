@@ -4,8 +4,7 @@ import json
 import time
 from pprint import  pprint
 
-TOKEN = "7305551623:AAH0quKy8Rc5zVkl2FkXlD3G75C0xurWvi0"
-# TOKEN = '7787720175:AAG4ofQwvV9MAS2W7C_hh3VEHsVMSdb3ME8'
+TOKEN = "dsds"
 get_updates = f'https://api.telegram.org/bot{TOKEN}/getUpdates'
 
 keyboard = {"keyboard": [[{"text": "Добавить дело"}], [{"text": "Посмотреть дела"}]], 'resize_keyboard': True}

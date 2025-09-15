@@ -7,7 +7,7 @@ end_num = 5
 game_status = {} #храним данные об играх каждого пользователя
 user_admin = 496775340
 
-TOKEN = "7305551623:AAH0quKy8Rc5zVkl2FkXlD3G75C0xurWvi0"
+TOKEN = "dsadsa"
 
 id_last_message = ''
 

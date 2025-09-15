@@ -2,7 +2,7 @@ import requests
 import time
 import os
 import random
-from yandexkey import YandexGPT
+from yandex import YandexGPT
 
 class TelegramAPI:
     
@@ -34,29 +34,12 @@ class TelegramAPI:
         response = requests.post(url, json=params)
         return response.json()
     
-    def send_photo(self, chat_id):
+    def send_photo(self, chat_id, random_jpg_file, caption):
         """Отправка сообщений"""
-        # Путь к папке с картинками
-        folder_path = '2025-09-12\\img'
-        if os.path.isdir(folder_path):
-            # Получаем список всех файлов в папке
-            all_files = os.listdir(folder_path)
-
-            # Фильтруем список, оставляя только файлы с расширением .jpg
-            jpg_files = [f for f in all_files if f.endswith('.jpg')]
-
-            # Выбираем случайный файл из списка jpg-файлов
-            if jpg_files:
-                random_jpg_file = random.choice(jpg_files)
-                random_jpg_file = folder_path + '\\' + random_jpg_file
-        else:
-            random_jpg_file = '2025-09-12\\nophoto.jpg'
-
-
         url = self.base_url + 'sendPhoto'
         with open(random_jpg_file, 'rb') as photo_file:
             files = {'photo': photo_file}
-            params = {'chat_id': chat_id, 'caption': 'Вот тебе картинка'}
+            params = {'chat_id': chat_id, 'caption': caption}
             response = requests.post(url, files=files, data=params)
         response.raise_for_status()  # Проверяем статус ответа
         return response.json()
@@ -102,7 +85,23 @@ def send_fact(chat_id):
     telegram_api.send_message(chat_id, yandex.get_answer('случайный факт'))
 
 def send_photo(chat_id):
-    telegram_api.send_photo(chat_id)
+    # Путь к папке с картинками
+    folder_path = '2025-09-12\\img'
+    if os.path.isdir(folder_path):
+        # Получаем список всех файлов в папке
+        all_files = os.listdir(folder_path)
+     # Фильтруем список, оставляя только файлы с расширением .jpg
+        jpg_files = [f for f in all_files if f.endswith('.jpg')]
+     # Выбираем случайный файл из списка jpg-файлов
+        if jpg_files:
+            random_jpg_file = random.choice(jpg_files)
+            random_jpg_file = folder_path + '\\' + random_jpg_file
+            caption = 'Вот тебе картинка'
+    else:
+        random_jpg_file = '2025-09-12\\nophoto.jpg'
+        caption = 'Не нашел картинку'
+    
+    telegram_api.send_photo(chat_id, random_jpg_file, caption)
     
 token = "7305551623:AAHXWHs6FhqlctegHnVUYhhq_MQFyab9ddw"
 MY_CHAT = 496775340
@@ -115,12 +114,12 @@ yandex = YandexGPT()
 start_handler = MessageHandler('/start', send_hello)
 help_handler = MessageHandler('/help', send_help)
 fact_handler = MessageHandler('случайный факт', send_fact)
-photo_handler = MessageHandler('картинка', send_photo)
+photo_rnd_handler = MessageHandler('картинка', send_photo)
 
 # обработчики
 bot.handlers.append(start_handler)
 bot.handlers.append(help_handler)
 bot.handlers.append(fact_handler)
-bot.handlers.append(photo_handler)
+bot.handlers.append(photo_rnd_handler)
 
 bot.run()

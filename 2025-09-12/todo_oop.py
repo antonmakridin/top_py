@@ -1,5 +1,7 @@
 import requests
 import time
+import os
+import random
 from yandex import YandexGPT
 
 class TelegramAPI:
@@ -16,16 +18,49 @@ class TelegramAPI:
     def get_updates(self, offset=0):
         """Получение обновлений"""
         url = self.base_url + 'getUpdates'
-        params = {'offset': offset + 1}
+        params = {
+            'offset': offset + 1
+        }
         response = requests.get(url, params=params)
         return response.json()
     
     def send_message(self, chat_id, message_text):
         """Отправка сообщений"""
         url = self.base_url + 'sendMessage'
-        params = {'chat_id': chat_id, 'text': message_text}
+        params = {
+            'chat_id': chat_id, 
+            'photo': message_text
+        }
         response = requests.post(url, json=params)
         return response.json()
+    
+    def send_photo(self, chat_id):
+        """Отправка сообщений"""
+        # Путь к папке с картинками
+        folder_path = '2025-09-12\\img'
+        if os.path.isdir(folder_path):
+            # Получаем список всех файлов в папке
+            all_files = os.listdir(folder_path)
+
+            # Фильтруем список, оставляя только файлы с расширением .jpg
+            jpg_files = [f for f in all_files if f.endswith('.jpg')]
+
+            # Выбираем случайный файл из списка jpg-файлов
+            if jpg_files:
+                random_jpg_file = random.choice(jpg_files)
+                random_jpg_file = folder_path + '\\' + random_jpg_file
+        else:
+            random_jpg_file = '2025-09-12\\nophoto.jpg'
+
+
+        url = self.base_url + 'sendPhoto'
+        with open(random_jpg_file, 'rb') as photo_file:
+            files = {'photo': photo_file}
+            params = {'chat_id': chat_id, 'caption': 'Вот тебе картинка'}
+            response = requests.post(url, files=files, data=params)
+        response.raise_for_status()  # Проверяем статус ответа
+        return response.json()
+        
 
 class Bot():
     def __init__(self, api:TelegramAPI):
@@ -56,14 +91,18 @@ class MessageHandler():
         if self.text == message_text:
             self.func(chat_id)
 
-# def send_hello(chat_id):
-#     telegram_api.send_message(chat_id, 'Стартуем бот!')
+# функции
+def send_hello(chat_id):
+    telegram_api.send_message(chat_id, 'Стартуем бот!')
 
-# def send_help(chat_id):
-#     telegram_api.send_message(chat_id, 'Давай помогу!')
+def send_help(chat_id):
+    telegram_api.send_message(chat_id, 'Давай помогу!')
 
-# def send_fact(chat_id):
-#     telegram_api.send_message(chat_id, yandex.get_answer('случайный факт'))
+def send_fact(chat_id):
+    telegram_api.send_message(chat_id, yandex.get_answer('случайный факт'))
+
+def send_photo(chat_id):
+    telegram_api.send_photo(chat_id)
     
 token = "7305551623:AAHXWHs6FhqlctegHnVUYhhq_MQFyab9ddw"
 MY_CHAT = 496775340
@@ -72,14 +111,16 @@ telegram_api = TelegramAPI(token)
 bot = Bot(telegram_api)
 yandex = YandexGPT()
 # подключение хэндлеров
-handlers = {}
-
 
 start_handler = MessageHandler('/start', send_hello)
 help_handler = MessageHandler('/help', send_help)
 fact_handler = MessageHandler('случайный факт', send_fact)
+photo_handler = MessageHandler('картинка', send_photo)
+
+# обработчики
 bot.handlers.append(start_handler)
 bot.handlers.append(help_handler)
 bot.handlers.append(fact_handler)
+bot.handlers.append(photo_handler)
 
 bot.run()

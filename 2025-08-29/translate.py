@@ -72,3 +72,4 @@ while True:
     print(f'Перевод: {result}')
     
     db.add_translate(user, lang, result)
+    print('s')

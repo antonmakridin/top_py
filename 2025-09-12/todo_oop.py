@@ -1,5 +1,6 @@
 import requests
 import time
+from yandex import YandexGPT
 
 class TelegramAPI:
     
@@ -43,8 +44,6 @@ class Bot():
                 for handler in self.handlers:
                     # вызываем execute, в котором проверяется условие срабатывания хэндлера
                     handler.execute(text, chat_id)
-                    
-
                 self.last_update_id = update['update_id']
             time.sleep(0.5)
 
@@ -57,22 +56,30 @@ class MessageHandler():
         if self.text == message_text:
             self.func(chat_id)
 
-def send_hello(chat_id):
-    telegram_api.send_message(chat_id, 'Стартуем бот!')
+# def send_hello(chat_id):
+#     telegram_api.send_message(chat_id, 'Стартуем бот!')
 
-def send_help(chat_id):
-    telegram_api.send_message(chat_id, 'Давай помогу!')
+# def send_help(chat_id):
+#     telegram_api.send_message(chat_id, 'Давай помогу!')
+
+# def send_fact(chat_id):
+#     telegram_api.send_message(chat_id, yandex.get_answer('случайный факт'))
     
 token = "7305551623:AAHXWHs6FhqlctegHnVUYhhq_MQFyab9ddw"
 MY_CHAT = 496775340
 
 telegram_api = TelegramAPI(token)
 bot = Bot(telegram_api)
-
+yandex = YandexGPT()
 # подключение хэндлеров
+handlers = {}
+
+
 start_handler = MessageHandler('/start', send_hello)
 help_handler = MessageHandler('/help', send_help)
+fact_handler = MessageHandler('случайный факт', send_fact)
 bot.handlers.append(start_handler)
 bot.handlers.append(help_handler)
+bot.handlers.append(fact_handler)
 
 bot.run()

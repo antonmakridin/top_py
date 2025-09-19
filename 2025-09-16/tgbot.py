@@ -3,7 +3,7 @@ from telebot import types
 import yandexkey
 
 yandex = yandexkey.YandexGPT()
-bot = telebot.TeleBot("")
+bot = telebot.TeleBot("dsadsa")
 
 
 @bot.message_handler(commands=['start'])

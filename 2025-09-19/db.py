@@ -1,0 +1,45 @@
+import os
+import json
+
+class TelegramDB:
+    def __init__(self, filename):
+        self.filename = filename
+    
+    def set_value(self, telegram_id, name, value):
+        # получить текущую базу или создать запись для пользователя
+        # для текущего пользователя
+        data = self._get_data()
+        # присваиваем значение, если пользователь первый раз
+        if not telegram_id in data:
+            data[telegram_id] = {name:value}
+            self._save_data(data)
+            return True
+        # присваиваем значение, если пользователь НЕ первый раз
+        data[telegram_id][name] = value
+        self._save_data(data)
+
+    def get_value(self, telegram_id, name):
+        # возвращаем значение по ключу
+        data = self._get_data
+        if telegram_id not in data:
+            return None
+        if name not in data[telegram_id]:
+            return None
+        return data[telegram_id][name]
+
+    
+    def _get_data(self):
+        # получить данные из файла
+        if not os.path.exists(self.filename):
+            return {}
+        else:
+            with open(self.filename, 'r', encoding='utf-8') as f:
+                return json.load(f)
+            
+    def _save_data(self, data):
+        with open(self.filename, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False)
+            
+if __name__ == '__main__':
+    db = TelegramDB('2025-09-19\\tg.json')
+    db.set_value('123', 'lang', 'en')

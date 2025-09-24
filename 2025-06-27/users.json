@@ -1,0 +1,10 @@
+{
+    "name": "\u0418\u0432\u0430\u043d",
+    "age": 30,
+    "is_student": false,
+    "skills": [
+        "Python",
+        "SQL",
+        "Git"
+    ]
+}

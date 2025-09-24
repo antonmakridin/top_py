@@ -8,7 +8,7 @@ yandex = yandextranslate.YandexGPT()
 
 from db import TelegramDB
 
-TOKEN = '7305551623:AAHGZYODsLiTcghxPb904djJaJLpd2M4mSc'
+TOKEN = ''
 bot = telebot.TeleBot(TOKEN)
 db = TelegramDB('2025-09-191\\tg.json')
 

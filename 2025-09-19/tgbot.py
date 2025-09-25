@@ -3,7 +3,7 @@ from telebot import types
 import yandexkey
 
 yandex = yandexkey.YandexGPT()
-bot = telebot.TeleBot("7305551623:AAHGZYODsLiTcghxPb904djJaJLpd2M4mSc")
+bot = telebot.TeleBot("")
 
 def en(text):
      return yandex.get_answer(f'Переведи на английский следующий текст: {text}')

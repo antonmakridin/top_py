@@ -1,4 +1,5 @@
 import telebot
+import sys
 from telebot import types
 import yandextranslate
 from speech import synthesize
@@ -33,6 +34,13 @@ def send_hello(message):
     markup_inline = keyboard.get_language_menu()
     bot.send_message(message.chat.id, 'Привет! Выбириай язык для перевода', reply_markup=markup_inline)
     set_count(message.chat.id)
+
+@bot.message_handler(commands=['stop'])
+def stop_bot(message):
+    bot.send_message(message.chat.id, 'Остановка бота')
+    bot.stop_polling()
+    sys.exit(0) # 0 - код успешного завершения
+
 
 @bot.message_handler(commands=['language'])
 def change_language(message):
